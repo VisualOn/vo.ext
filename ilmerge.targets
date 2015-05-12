@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <RootPath>$(MSBuildThisFileDirectory)</RootPath>
+        <MSBuildCommunityTasksPath>$(RootPath)\.build</MSBuildCommunityTasksPath>
+    </PropertyGroup>
+
+    <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>
+
+    <PropertyGroup>
+        <TargetPlatform Condition="'$(TargetFrameworkVersion)'=='v3.5'">v2</TargetPlatform>
+        <TargetPlatform Condition="'$(TargetFrameworkVersion)'=='v4.5'">v4</TargetPlatform>
+        <OutputDirectory>$(RootPath)\bin\lib\net$(TargetFrameworkVersion.Substring(1).Replace(".", ""))</OutputDirectory>
+        <ILMergeArgs>/targetplatform:$(TargetPlatform) /keyfile:$(RootPath)\VisualOn.Externals.snk /out:$(OutputDirectory)\$(AssemblyName).dll</ILMergeArgs>
+    </PropertyGroup>
+
+
+    <Target Name="GlobalAssemblyInfo" BeforeTargets="CoreCompile">
+        <ItemGroup>
+            <Compile Include="$(RootPath)\bin\GlobalAssemblyInfo.cs" />
+        </ItemGroup>
+    </Target>
+
+    <Target Name="Merge" AfterTargets="Build">
+        <MakeDir Directories="$(OutputDirectory)" />
+        <ItemGroup>
+            <InputAssemblies Include="%(Reference.HintPath)"/>
+        </ItemGroup>
+        <ILMerge InputAssemblies="$(TargetPath);@(InputAssemblies)"
+                 OutputFile="$(OutputDirectory)\$(AssemblyName).dll"
+                 KeyFile="$(RootPath)\VisualOn.Externals.snk"
+                 TargetPlatformVersion="$(TargetPlatform)"
+                 DebugInfo="true"
+                 XmlDocumentation="true"  />
+    </Target>
+
+</Project>

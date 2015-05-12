@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualOn.Externals.net35", "net35\VisualOn.Externals.net35.csproj", "{7B3C3EFA-F41E-4661-B6B9-2D4DC61B514E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisualOn.Externals.net45", "net45\VisualOn.Externals.net45.csproj", "{63551458-0579-4074-B1A9-AFAEEA0F0567}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".build", ".build", "{BA0DD02B-54A2-4621-AC05-68F7FEB0A0BE}"
+	ProjectSection(SolutionItems) = preProject
+		Build.proj = Build.proj
+		.build\MSBuild.Community.Tasks.dll = .build\MSBuild.Community.Tasks.dll
+		.build\MSBuild.Community.Tasks.targets = .build\MSBuild.Community.Tasks.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B3C3EFA-F41E-4661-B6B9-2D4DC61B514E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B3C3EFA-F41E-4661-B6B9-2D4DC61B514E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B3C3EFA-F41E-4661-B6B9-2D4DC61B514E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B3C3EFA-F41E-4661-B6B9-2D4DC61B514E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63551458-0579-4074-B1A9-AFAEEA0F0567}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63551458-0579-4074-B1A9-AFAEEA0F0567}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63551458-0579-4074-B1A9-AFAEEA0F0567}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63551458-0579-4074-B1A9-AFAEEA0F0567}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

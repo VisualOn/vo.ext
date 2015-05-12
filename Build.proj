@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <MSBuildCommunityTasksPath>$(MSBuildProjectDirectory)\.build</MSBuildCommunityTasksPath>
+    </PropertyGroup>
+
+    <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>
+
+    <PropertyGroup>
+        <OutputDirectory>$(MSBuildProjectDirectory)\bin</OutputDirectory>
+    </PropertyGroup>
+
+    <!-- Version Number -->
+    <PropertyGroup Condition=" '$(BUILD_NUMBER)' == '' ">
+        <Version>1.0.0.0</Version>
+        <FileVersion>1.0.0</FileVersion>
+        <InformationalVersion>1.0.0</InformationalVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(BUILD_NUMBER)' != '' ">
+        <!-- Build Server Number -->
+        <Version>1.0.0.0</Version>
+        <FileVersion>$(BUILD_NUMBER)</FileVersion>
+        <FileVersion Condition="$(FileVersion.Contains('-'))">$(FileVersion.Substring(0, $(FileVersion.IndexOf('-'))))</FileVersion>
+        <InformationalVersion>$(BUILD_NUMBER)</InformationalVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(BuildConfiguration)' == '' ">
+        <BuildConfiguration>Release</BuildConfiguration>
+    </PropertyGroup>
+
+    <Target Name="Clean">
+        <DeleteTree Directories="**\obj\**;**\bin\**" />
+    </Target>
+
+    <Target Name="Version">
+        <Time>
+            <Output TaskParameter="Year" PropertyName="Year" />
+        </Time>
+
+        <Message Text="Version: $(InformationalVersion)"/>
+
+        <MakeDir Directories="$(MSBuildProjectDirectory)\bin" />
+        <Attrib Files="$(MSBuildProjectDirectory)\bin\GlobalAssemblyInfo.cs" ReadOnly="False" />
+
+        <AssemblyInfo CodeLanguage="CS"
+                      OutputFile="$(MSBuildProjectDirectory)\bin\GlobalAssemblyInfo.cs"
+                      AssemblyCompany="VisualOn GmbH"
+                      AssemblyCopyright="Copyright © VisualOn GmbH $(Year). All rights reserved."
+                      AssemblyConfiguration="$(BuildConfiguration)"
+                      AssemblyVersion="$(Version)"
+                      AssemblyFileVersion="$(FileVersion)"
+                      AssemblyInformationalVersion="$(InformationalVersion)" />
+    </Target>
+
+    <!-- Projects to Build -->
+    <ItemGroup>
+        <ProjectFiles Include="$(MSBuildProjectDirectory)\**\*.sln">
+            <Properties>Configuration=$(BuildConfiguration)</Properties>
+        </ProjectFiles>
+        <NuSpecFiles Include="*.nuspec" />
+    </ItemGroup>
+
+    <Target Name="Compile" DependsOnTargets="Clean;Version">
+        <MSBuild Projects="@(ProjectFiles)" Targets="Rebuild" />
+    </Target>
+
+    <Target Name="Pack" DependsOnTargets="Compile">
+        <NuGetPack File="@(NuSpecFiles)"
+                   OutputDirectory="$(OutputDirectory)"
+                   Properties="Version=$(InformationalVersion);Year=$(Year)"/>
+    </Target>
+
+    <Target Name="Init" BeforeTargets="Compile" AfterTargets="Clean">
+        <Message Text="Running nuget restore ..." Importance="high" />
+        <Exec Command="nuget restore -Verbosity quiet" />
+        <Message Text="  finished!" Importance="high" />
+    </Target>
+
+    <Target Name="Build">
+        <CallTarget Targets="Compile"/>
+    </Target>
+
+</Project>

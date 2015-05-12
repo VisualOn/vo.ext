@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>VisualOn.Externals</id>
+    <version>$version$</version>
+    <title>VisualOn Externals</title>
+    <authors>Michael Kriese</authors>
+    <owners>VisualOn GmbH</owners>
+    <licenseUrl>https://raw.github.com/visualon/vo.ext/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/visualon/vo.ext</projectUrl>
+    <!--<iconUrl>https://raw.github.com/antlr/website-antlr/master/images/icons/antlr.png</iconUrl>-->
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>VisualOn merged essential dependencies</description>
+    <releaseNotes>https://github.com/visualon/vo.ext/releases/v$version$</releaseNotes>
+    <copyright>Copyright © VisualOn GmbH $year$</copyright>
+  </metadata>
+  <files>
+    <file src="bin\lib\**" target="lib\" />
+  </files>
+</package>
