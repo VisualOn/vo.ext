@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata minClientVersion="2.8">
-        <id>VisualOn.Antlr</id>
+        <id>VisualOn.Antlr4</id>
         <version>$version$</version>
         <title>VisualOn Antlr</title>
         <authors>Michael Kriese</authors>
