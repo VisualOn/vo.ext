@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-    <metadata>
+    <metadata minClientVersion="2.7">
         <id>VisualOn.Antlr</id>
         <version>$version$</version>
         <title>VisualOn Antlr</title>
@@ -10,6 +10,7 @@
         <projectUrl>https://github.com/visualon/vo.ext</projectUrl>
         <!--<iconUrl>https://raw.github.com/antlr/website-antlr/master/images/icons/antlr.png</iconUrl>-->
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <developmentDependency>true</developmentDependency>
         <description>VisualOn antlr rebuild</description>
         <releaseNotes>https://github.com/visualon/vo.ext/releases/v$version$</releaseNotes>
         <copyright>Copyright © VisualOn GmbH $year$</copyright>
