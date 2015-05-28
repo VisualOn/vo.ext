@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
-        <id>VisualOn.Externals.Antlr</id>
+        <id>VisualOn.Antlr</id>
         <version>$version$</version>
-        <title>VisualOn Externals Antlr</title>
+        <title>VisualOn Antlr</title>
         <authors>Michael Kriese</authors>
         <owners>VisualOn GmbH</owners>
         <licenseUrl>https://raw.github.com/visualon/vo.ext/master/LICENSE</licenseUrl>
@@ -14,7 +14,7 @@
         <releaseNotes>https://github.com/visualon/vo.ext/releases/v$version$</releaseNotes>
         <copyright>Copyright © VisualOn GmbH $year$</copyright>
         <dependencies>
-            <dependency id="VisualOn.Externals" />
+            <dependency id="VisualOn.Externals" version="$version$" />
         </dependencies>
     </metadata>
     <files>
