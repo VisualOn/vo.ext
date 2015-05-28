@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
-    <metadata minClientVersion="2.7">
+    <metadata minClientVersion="2.8">
         <id>VisualOn.Antlr</id>
         <version>$version$</version>
         <title>VisualOn Antlr</title>
@@ -11,9 +11,11 @@
         <!--<iconUrl>https://raw.github.com/antlr/website-antlr/master/images/icons/antlr.png</iconUrl>-->
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <developmentDependency>true</developmentDependency>
-        <description>VisualOn antlr rebuild</description>
+        <description>The C# target of the ANTLR 4 parser generator for Visual Studio 2010+ projects. This package supports projects targeting .NET 2.0 or newer, and built using Visual Studio 2010 or newer.</description>
+        <summary>The C# target of the ANTLR 4 parser generator for Visual Studio 2010+ projects.</summary>
         <releaseNotes>https://github.com/visualon/vo.ext/releases/v$version$</releaseNotes>
         <copyright>Copyright © VisualOn GmbH $year$</copyright>
+        <tags>antlr antlr4 parsing</tags>
         <dependencies>
             <dependency id="VisualOn.Externals" version="$version$" />
         </dependencies>
