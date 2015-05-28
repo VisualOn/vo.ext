@@ -21,7 +21,7 @@ param(
 #        [string] $tfv,
 #        [string] $const = "TRACE"
     )
-        
+
     $props = "Configuration=$BuildConfig;BUILD_NUMBER=$Version"
 
     $opts = @('/nologo', '/m', '/nr:false', "/v:m", "/t:$Target", "/p:$props", $SolutionPath);

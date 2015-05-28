@@ -66,7 +66,7 @@
     </Target>
 
     <Target Name="Pack" DependsOnTargets="Compile">
-        <NuGetPack File="@(NuSpecFiles)"
+        <NuGetPack File="%(NuSpecFiles.Identity)"
                    OutputDirectory="$(OutputDirectory)"
                    Properties="Version=$(InformationalVersion);Year=$(Year)"/>
     </Target>
