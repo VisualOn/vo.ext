@@ -8,7 +8,7 @@
         <owners>VisualOn GmbH</owners>
         <licenseUrl>https://raw.github.com/visualon/vo.ext/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/visualon/vo.ext</projectUrl>
-        <!--<iconUrl>https://raw.github.com/antlr/website-antlr/master/images/icons/antlr.png</iconUrl>-->
+        <iconUrl>https://visualon.github.io/img/nuget.png</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <developmentDependency>true</developmentDependency>
         <description>The C# target of the ANTLR 4 parser generator for Visual Studio 2010+ projects. This package supports projects targeting .NET 2.0 or newer, and built using Visual Studio 2010 or newer.</description>

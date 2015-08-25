@@ -8,7 +8,7 @@
         <owners>VisualOn GmbH</owners>
         <licenseUrl>https://raw.github.com/visualon/vo.ext/master/LICENSE</licenseUrl>
         <projectUrl>https://github.com/visualon/vo.ext</projectUrl>
-        <!--<iconUrl>https://raw.github.com/antlr/website-antlr/master/images/icons/antlr.png</iconUrl>-->
+        <iconUrl>https://visualon.github.io/img/nuget.png</iconUrl>
         <requireLicenseAcceptance>true</requireLicenseAcceptance>
         <description>VisualOn merged essential dependencies</description>
         <releaseNotes>https://github.com/visualon/vo.ext/releases/v$version$</releaseNotes>
