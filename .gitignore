@@ -194,3 +194,7 @@ FakesAssemblies/
 
 # Visual Studio 6 workspace options file
 *.opt
+
+# Ignore other intermediate files that NuGet might create
+project.json.lock
+*.nuget.props

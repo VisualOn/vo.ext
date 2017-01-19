@@ -1,0 +1,20 @@
+{
+    "dependencies": {
+        "Antlr4": "4.5.3",
+        "Antlr4.Runtime": "4.5.3",
+        "MSBuildTasks": "1.5.0.214",
+        "Newtonsoft.Json": "9.0.1",
+        "NLog": "4.4.1",
+        "VisualOn.Jurassic": "2.2.2"
+    },
+    "frameworks": {
+        "net35": {
+            "dependencies": {
+                "TaskParallelLibrary": "1.0.2856.0"
+            }
+        }
+    },
+    "runtimes": {
+        "win": {}
+    }
+}

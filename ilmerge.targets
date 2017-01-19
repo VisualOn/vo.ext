@@ -2,10 +2,10 @@
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
     <PropertyGroup>
         <RootPath>$(MSBuildThisFileDirectory)</RootPath>
-        <MSBuildCommunityTasksPath>$(RootPath)\.build</MSBuildCommunityTasksPath>
+        <!-- <MSBuildCommunityTasksPath>$(RootPath)\.build</MSBuildCommunityTasksPath> -->
     </PropertyGroup>
 
-    <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/>
+    <!-- <Import Project="$(MSBuildCommunityTasksPath)\MSBuild.Community.Tasks.targets"/> -->
 
     <PropertyGroup>
         <TargetPlatform Condition="'$(TargetFrameworkVersion)'=='v3.5'">v2</TargetPlatform>
@@ -25,6 +25,7 @@
         <MakeDir Directories="$(OutputDirectory)" />
         <ItemGroup>
             <InputAssemblies Include="%(Reference.HintPath)"/>
+            <InputAssemblies Include="@(_ReferencesFromNuGetPackages)"/>
         </ItemGroup>
         <ILMerge InputAssemblies="$(TargetPath);@(InputAssemblies)"
                  OutputFile="$(OutputDirectory)\$(AssemblyName).dll"
