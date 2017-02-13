@@ -19,7 +19,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "other", "other", "{E92FF8B3
 		Build.proj = Build.proj
 		build.ps1 = build.ps1
 		push.ps1 = push.ps1
-		VisualOn.Antlr4.nuspec = VisualOn.Antlr4.nuspec
 		VisualOn.Externals.nuspec = VisualOn.Externals.nuspec
 	EndProjectSection
 EndProject
