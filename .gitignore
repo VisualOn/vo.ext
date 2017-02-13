@@ -196,5 +196,6 @@ FakesAssemblies/
 *.opt
 
 # Ignore other intermediate files that NuGet might create
-project.json.lock
+*.project.lock.json
 *.nuget.props
+*.nuget.targets
