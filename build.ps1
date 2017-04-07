@@ -2,7 +2,7 @@
     [ValidateSet('Build', 'Pack', 'Clean')]
     [string]$Target = 'Build',
     [ValidatePattern("\d+\.\d+\.\d+(-\w*)?")]
-    [string]$Version = "2.0.0"
+    [string]$Version = "2.0.1"
 )
 
 
