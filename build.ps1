@@ -1,8 +1,8 @@
-param(
+﻿param(
     [ValidateSet('Build', 'Pack', 'Clean')]
     [string]$Target = 'Build',
     [ValidatePattern("\d+\.\d+\.\d+(-\w*)?")]
-    [string]$Version = "1.5.0"
+    [string]$Version = "2.0.0"
 )
 
 
