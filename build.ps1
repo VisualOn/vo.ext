@@ -23,7 +23,7 @@ function Get-MsBuild {
             foreach ($ver in $msbuilds) {
                 $r = "$p\MSBuild\$ver\Bin\amd64\MSBuild.exe"
                 if (Test-Path $r) {
-                    Write-Host "Using msbuild v$ver"
+                    Write-Debug "Found msbuild v$ver at $r"
                     return $r
                 }
             }
@@ -35,8 +35,8 @@ function Get-MsBuild {
     foreach ($ver in $msbuilds) {
         $r = ('HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\{0}' -f $ver)
         if (Test-Path $r) {
-            Write-Host "Using msbuild v$ver"
             $p = $r | Get-ItemProperty -Name 'MSBuildToolsPath' | Select-Object -ExpandProperty 'MSBuildToolsPath'
+            Write-Debug "Found msbuild v$ver at $p\msbuild.exe"
             return "$p\msbuild.exe"
         }
     }
