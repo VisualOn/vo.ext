@@ -19,7 +19,7 @@
 
     <PropertyGroup Condition=" '$(BUILD_NUMBER)' != '' ">
         <!-- Build Server Number -->
-        <Version>1.0.0.0</Version>
+        <Version>2.0.0.0</Version>
         <FileVersion>$(BUILD_NUMBER)</FileVersion>
         <FileVersion Condition="$(FileVersion.Contains('-'))">$(FileVersion.Substring(0, $(FileVersion.IndexOf('-'))))</FileVersion>
         <InformationalVersion>$(BUILD_NUMBER)</InformationalVersion>
