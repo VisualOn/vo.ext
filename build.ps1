@@ -14,15 +14,28 @@ $out = Join-Path (Resolve-Path .) bin
 
 #region functions
 
-function Get-MsBuild
-{
+function Get-MsBuild {
+    if (Get-Command vswhere -ErrorAction SilentlyContinue) {
+        $p = vswhere -latest -requires Microsoft.Component.MSBuild -property installationPath
+        if ($p -ne $null -and (Test-Path $p)) {
+            $msbuilds = @('15.0')
+
+            foreach ($ver in $msbuilds) {
+                $r = "$p\MSBuild\$ver\Bin\amd64\MSBuild.exe"
+                if (Test-Path $r) {
+                    Write-Host "Using msbuild v$ver"
+                    return $r
+                }
+            }
+        }
+    }
+
     $msbuilds = @('14.0', '12.0', '4.0')
 
-    foreach($ver in $msbuilds)
-    {
+    foreach ($ver in $msbuilds) {
         $r = ('HKLM:\SOFTWARE\Microsoft\MSBuild\ToolsVersions\{0}' -f $ver)
-        if(Test-Path $r)
-        {
+        if (Test-Path $r) {
+            Write-Host "Using msbuild v$ver"
             $p = $r | Get-ItemProperty -Name 'MSBuildToolsPath' | Select-Object -ExpandProperty 'MSBuildToolsPath'
             return "$p\msbuild.exe"
         }
@@ -32,11 +45,11 @@ function Get-MsBuild
 }
 
 function Invoke-MSBuild() {
-param(
-#        [Parameter(Mandatory=$true)]
-#        [ValidateSet('v3.5', 'v4.5')]
-#        [string] $tfv,
-#        [string] $const = "TRACE"
+    param(
+        #        [Parameter(Mandatory=$true)]
+        #        [ValidateSet('v3.5', 'v4.5')]
+        #        [string] $tfv,
+        #        [string] $const = "TRACE"
     )
 
     $props = "Configuration=$BuildConfig;BUILD_NUMBER=$Version"
