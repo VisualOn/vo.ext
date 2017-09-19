@@ -1,8 +1,8 @@
 ﻿{
   "dependencies": {
     "MSBuildTasks": "1.5.0.235",
-    "Newtonsoft.Json": "10.0.2",
-    "NLog": "4.4.5"
+    "Newtonsoft.Json": "10.0.3",
+    "NLog": "4.4.12"
   },
   "frameworks": {
     "net45": {}
