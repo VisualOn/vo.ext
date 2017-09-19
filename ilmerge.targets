@@ -32,7 +32,8 @@
                  KeyFile="$(RootPath)\VisualOn.Externals.snk"
                  TargetPlatformVersion="$(TargetPlatform)"
                  DebugInfo="true"
-                 XmlDocumentation="true"  />
+                 XmlDocumentation="true"
+                 LogFile="$(RootPath)\bin\ilmerge.log"  />
     </Target>
 
 </Project>
